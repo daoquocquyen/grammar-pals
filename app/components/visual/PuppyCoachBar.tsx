@@ -28,6 +28,10 @@ export default function PuppyCoachBar({
   const { speak } = useAudio();
   const puppySrc = getAssetPath(moodToKey[mood]);
   const bubbleSrc = getAssetPath("ui.ui_speech_bubble");
+  const sparkleSrc = getAssetPath("ui.ui_sparkle");
+  const pawprintSrc = getAssetPath("ui.ui_pawprint");
+  const confettiSrc = getAssetPath("ui.ui_confetti");
+  const showCelebrate = mood === "happy" || mood === "celebrate";
 
   useEffect(() => {
     if (autoSpeak) {
@@ -36,8 +40,9 @@ export default function PuppyCoachBar({
   }, [autoSpeak, message, speak]);
 
   return (
-    <section className="puppy-coach" aria-label="Puppy coach">
+    <section className={`puppy-coach puppy-coach--${mood}`} aria-label="Puppy coach">
       <div className="puppy-coach__avatar">
+        <span className="puppy-coach__halo" aria-hidden="true" />
         {puppySrc ? (
           <Image
             src={puppySrc}
@@ -45,6 +50,15 @@ export default function PuppyCoachBar({
             className="puppy-coach__puppy"
             width={140}
             height={140}
+          />
+        ) : null}
+        {showCelebrate && confettiSrc ? (
+          <Image
+            src={confettiSrc}
+            alt=""
+            className="puppy-coach__confetti"
+            width={64}
+            height={64}
           />
         ) : null}
       </div>
@@ -58,6 +72,26 @@ export default function PuppyCoachBar({
             height={220}
           />
         ) : null}
+        <div className="puppy-coach__sparkles" aria-hidden="true">
+          {sparkleSrc ? (
+            <Image
+              src={sparkleSrc}
+              alt=""
+              className="puppy-coach__sparkle puppy-coach__sparkle--one"
+              width={32}
+              height={32}
+            />
+          ) : null}
+          {pawprintSrc ? (
+            <Image
+              src={pawprintSrc}
+              alt=""
+              className="puppy-coach__sparkle puppy-coach__sparkle--two"
+              width={28}
+              height={28}
+            />
+          ) : null}
+        </div>
         <p className="puppy-coach__message">{message}</p>
       </div>
     </section>

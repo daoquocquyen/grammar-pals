@@ -735,16 +735,23 @@ p {
 
 .scene-card {
   position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  border-radius: 36px 30px 40px 28px;
+  padding: 6px;
   border: 4px solid #5b4a3a;
   box-shadow: var(--shadow);
+  background: #fff4de;
+}
+
+.scene-card__inner {
+  position: relative;
   min-height: 240px;
+  border-radius: 30px 26px 34px 24px;
+  overflow: hidden;
   background: #f7f1e4;
 }
 
-.scene-card.is-highlight {
-  box-shadow: 0 0 0 4px rgba(255, 200, 87, 0.5);
+.scene-card.is-highlight .scene-card__inner {
+  box-shadow: 0 0 0 4px rgba(255, 200, 87, 0.45);
   animation: cluePulse 0.8s ease-in-out infinite;
 }
 
@@ -760,9 +767,37 @@ p {
   position: relative;
   z-index: 1;
   display: grid;
+  grid-template-rows: auto 1fr;
   gap: 12px;
-  padding: 20px;
+  padding: 18px 20px;
   height: 100%;
+}
+
+.scene-card__stickers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.scene-card__sticker {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  opacity: 0.9;
+  animation: float 3.6s ease-in-out infinite;
+}
+
+.scene-card__sticker--sparkle {
+  top: 12px;
+  right: 14px;
+}
+
+.scene-card__sticker--paw {
+  bottom: 16px;
+  left: 18px;
+  animation-delay: 0.4s;
 }
 
 .scene-card__badge {
@@ -773,6 +808,26 @@ p {
   border-radius: var(--radius-pill);
   font-weight: 800;
   padding: 6px 14px;
+  box-shadow: var(--shadow-soft);
+  transform: rotate(-4deg);
+}
+
+.scene-card__animal-stage {
+  position: relative;
+  display: grid;
+  align-items: end;
+  justify-items: center;
+  height: 100%;
+}
+
+.scene-card__ground {
+  position: absolute;
+  bottom: 8px;
+  width: clamp(140px, 60%, 320px);
+  height: 30px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  filter: blur(0.5px);
 }
 
 .scene-card__animals {
@@ -780,12 +835,34 @@ p {
   gap: 12px;
   flex-wrap: wrap;
   align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.scene-card__critter {
+  --tilt: -2deg;
+  display: grid;
+  place-items: center;
+  animation: critterFloat 2.8s ease-in-out infinite;
+  transform: translateY(0) rotate(var(--tilt));
+}
+
+.scene-card__critter:nth-child(2n) {
+  --tilt: 3deg;
+  animation-delay: 0.2s;
+}
+
+.scene-card__critter:nth-child(3n) {
+  --tilt: -4deg;
+  animation-delay: 0.5s;
 }
 
 .scene-card__animal {
   width: clamp(70px, 18vw, 120px);
   height: clamp(70px, 18vw, 120px);
   object-fit: contain;
+  filter: drop-shadow(0 6px 10px rgba(32, 28, 22, 0.18));
 }
 
 .puppy-coach {
@@ -795,25 +872,71 @@ p {
   align-items: center;
   padding: 16px 18px;
   border-radius: var(--radius-lg);
-  background: #fff4de;
+  background: linear-gradient(135deg, #fff6e7 0%, #ffe8c7 100%);
   border: 3px solid #5b4a3a;
   box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.puppy-coach--idle {
+  border-color: rgba(91, 74, 58, 0.9);
+}
+
+.puppy-coach--happy {
+  border-color: rgba(63, 191, 139, 0.8);
+  box-shadow: 0 16px 30px rgba(63, 191, 139, 0.2);
+}
+
+.puppy-coach--thinking {
+  border-color: rgba(99, 146, 255, 0.65);
+}
+
+.puppy-coach--celebrate {
+  border-color: rgba(255, 159, 67, 0.8);
+  box-shadow: 0 18px 32px rgba(255, 159, 67, 0.2);
 }
 
 .puppy-coach__avatar {
+  position: relative;
   display: grid;
   place-items: center;
 }
 
+.puppy-coach__halo {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 32px;
+  background: radial-gradient(circle at top, #fff1d7 0%, #ffd7a8 70%);
+  border: 3px solid #5b4a3a;
+  box-shadow: var(--shadow-soft);
+  z-index: 0;
+}
+
 .puppy-coach__puppy {
+  position: relative;
   width: 110px;
   height: 110px;
   object-fit: contain;
+  z-index: 1;
+  animation: bob 2.4s ease-in-out infinite;
+}
+
+.puppy-coach__confetti {
+  position: absolute;
+  right: 6px;
+  bottom: 2px;
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  z-index: 2;
 }
 
 .puppy-coach__bubble {
   position: relative;
-  padding: 22px;
+  padding: 22px 24px;
+  min-height: 130px;
 }
 
 .puppy-coach__bubble-art {
@@ -825,6 +948,29 @@ p {
   z-index: 0;
 }
 
+.puppy-coach__sparkles {
+  position: absolute;
+  top: 6px;
+  right: 16px;
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.puppy-coach__sparkle {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  animation: float 3.2s ease-in-out infinite;
+}
+
+.puppy-coach__sparkle--two {
+  width: 24px;
+  height: 24px;
+  animation-delay: 0.5s;
+}
+
 .puppy-coach__message {
   position: relative;
   z-index: 1;
@@ -832,6 +978,26 @@ p {
   font-weight: 700;
   color: #5b4a3a;
   font-size: 18px;
+}
+
+@keyframes critterFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--tilt));
+  }
+  50% {
+    transform: translateY(-6px) rotate(var(--tilt));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-card__critter,
+  .scene-card__sticker,
+  .puppy-coach__sparkle,
+  .puppy-coach__puppy,
+  .scene-card.is-highlight .scene-card__inner {
+    animation: none;
+  }
 }
 
 .mission-play {
