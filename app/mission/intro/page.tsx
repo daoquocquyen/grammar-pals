@@ -22,7 +22,7 @@ export default function MissionIntroPage() {
 
       <PetPanel
         message="Lets help them! We will use is and are."
-        mood="thoughtful"
+        reaction="thinking"
       />
 
       <div className="action-row">

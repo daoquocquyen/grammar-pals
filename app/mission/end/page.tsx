@@ -18,7 +18,7 @@ export default function MissionEndPage() {
         </div>
       </section>
 
-      <PetPanel message="Nice work! Is is for one, are is for many." mood="happy" />
+      <PetPanel message="Nice work! Is is for one, are is for many." reaction="happy" />
 
       <div className="action-row">
         <Link className="btn btn-primary" href="/reward">
