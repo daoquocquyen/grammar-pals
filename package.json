@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "test": "echo \"No tests specified\""
+    "test": "vitest run"
   },
   "dependencies": {
     "next": "^16.1.6",
@@ -24,6 +24,7 @@
     "eslint": "^9.0.0",
     "eslint-config-next": "^16.1.6",
     "prettier": "^3.8.1",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
   }
 }

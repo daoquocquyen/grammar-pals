@@ -25,7 +25,7 @@ jobs:
         run: npm run lint
 
       - name: Test
-        run: npm run test -- --runInBand
+        run: npm run test
         continue-on-error: false
 
       - name: Build
