@@ -1,8 +1,28 @@
 import Link from "next/link";
+import {
+  buildMissionPlayHref,
+  MISSION_QUESTION_COUNT,
+  parsePositiveInteger,
+} from "../../../lib/mission/progression";
 import PetPanel from "../../components/PetPanel";
 import TopBar from "../../components/TopBar";
 
-export default function MissionHalfwayPage() {
+type MissionHalfwayPageProps = {
+  searchParams?: Record<string, string | string[] | undefined>;
+};
+
+const getParam = (
+  value: string | string[] | undefined
+): string | undefined => (Array.isArray(value) ? value[0] : value);
+
+export default function MissionHalfwayPage({
+  searchParams,
+}: MissionHalfwayPageProps) {
+  const nextParam = getParam(searchParams?.next);
+  const nextStep = parsePositiveInteger(nextParam, 5);
+  const safeNextStep = Math.min(nextStep, MISSION_QUESTION_COUNT);
+  const continueHref = buildMissionPlayHref(safeNextStep, true);
+
   return (
     <main className="screen">
       <TopBar />
@@ -24,7 +44,7 @@ export default function MissionHalfwayPage() {
       <PetPanel message="Wow! They are feeling better already." reaction="cheer" />
 
       <div className="action-row">
-        <Link className="btn btn-primary" href="/mission/play">
+        <Link className="btn btn-primary" href={continueHref}>
           Continue
         </Link>
         <Link className="btn btn-ghost" href="/mission/end">
