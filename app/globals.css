@@ -273,6 +273,10 @@ p {
   box-shadow: var(--shadow-soft);
 }
 
+.pet-panel--tryon .pet-avatar {
+  animation: bob 1.4s ease-in-out infinite;
+}
+
 .pet-panel--idle {
   border-color: rgba(234, 223, 206, 0.9);
 }
@@ -302,6 +306,21 @@ p {
   place-items: center;
   position: relative;
   animation: bob 2.6s ease-in-out infinite;
+}
+
+.pet-accessory {
+  position: absolute;
+  bottom: -6px;
+  right: -8px;
+  background: var(--accent-2);
+  color: #103224;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-soft);
+  max-width: 120px;
+  text-align: center;
 }
 
 .pet-eye {
@@ -688,9 +707,23 @@ p {
   border: 2px solid rgba(255, 200, 87, 0.6);
 }
 
+.reward-icon--unlock {
+  animation: rewardPop 0.8s ease-in-out infinite;
+}
+
 .reward-name {
   font-weight: 700;
   font-size: 18px;
+}
+
+@keyframes rewardPop {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 .closet-card {
@@ -720,11 +753,25 @@ p {
   cursor: not-allowed;
 }
 
+.closet-item--owned {
+  border-color: rgba(255, 159, 67, 0.4);
+}
+
+.closet-item--equipped {
+  border-color: rgba(63, 191, 139, 0.8);
+  box-shadow: 0 0 0 3px rgba(63, 191, 139, 0.2);
+}
+
 .closet-icon {
   width: 50px;
   height: 50px;
   border-radius: 16px;
-  background: #ffe6c6;
+  background: linear-gradient(140deg, #fff1d8 0%, #ffe2bf 100%);
+  border: 2px solid rgba(255, 200, 87, 0.5);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: #8a4b00;
 }
 
 @media (max-width: 600px) {
