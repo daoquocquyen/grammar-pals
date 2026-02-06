@@ -45,6 +45,19 @@ Examples:
 - `feat(mission): add 8-question progression`
 - `fix(ui): prevent double-advance on rapid taps`
 
+### Commit body (when required)
+- Commit bodies are optional for small, straightforward changes.
+- A commit body is **required** when the change:
+  - affects mission/learning logic (progression, scoring, mastery, rewards),
+  - affects audio/TTS behavior,
+  - changes privacy/security-related behavior (storage, network calls, dependencies),
+  - introduces a non-obvious decision or tradeoff.
+
+Commit body guidelines:
+- Explain **why** (not what).
+- Keep it short (2–8 lines).
+- If helpful, include simple verification steps.
+
 ## Dependency policy
 - **Do not add new npm dependencies** unless the ticket explicitly approves it.
 - If a dependency seems necessary, propose:
