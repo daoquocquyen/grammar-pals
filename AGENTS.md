@@ -6,6 +6,7 @@ Build **GrammarPals**, a kid-safe web game that teaches English grammar through 
 ## Required reading (source of truth)
 Before starting any ticket, read:
 - `docs/INDEX_FOR_AGENTS.md`
+
 Treat the “Must-follow (requirements)” documents in that index as requirements.
 If a ticket conflicts with a requirement, stop and ask for clarification rather than guessing.
 
@@ -23,6 +24,39 @@ If a ticket conflicts with a requirement, stop and ask for clarification rather 
 - Avoid unrelated refactors
 - Prefer TypeScript and type safety
 - Keep functions small; separate UI and logic where reasonable
+
+## Commit message convention (required)
+Use **Conventional Commits**.
+
+Format:
+- `type(scope): short summary`
+
+Allowed types:
+- `feat`, `fix`, `chore`, `docs`, `test`, `refactor`, `style`, `ci`
+
+Guidelines:
+- Use present tense (e.g., “add”, “update”, “fix”)
+- Keep it short (<= 72 chars if possible)
+- Scope is recommended (examples: `setup`, `ci`, `ui`, `mission`, `content`, `audio`)
+
+Examples:
+- `chore(setup): scaffold nextjs app`
+- `ci(workflows): add ci pipeline`
+- `feat(mission): add 8-question progression`
+- `fix(ui): prevent double-advance on rapid taps`
+
+### Commit body (when required)
+- Commit bodies are optional for small, straightforward changes.
+- A commit body is **required** when the change:
+  - affects mission/learning logic (progression, scoring, mastery, rewards),
+  - affects audio/TTS behavior,
+  - changes privacy/security-related behavior (storage, network calls, dependencies),
+  - introduces a non-obvious decision or tradeoff.
+
+Commit body guidelines:
+- Explain **why** (not what).
+- Keep it short (2–8 lines).
+- If helpful, include simple verification steps.
 
 ## Dependency policy
 - **Do not add new npm dependencies** unless the ticket explicitly approves it.
@@ -51,7 +85,6 @@ If a ticket conflicts with a requirement, stop and ask for clarification rather 
 
 ## Skills (Agent Skills spec)
 Use the skills in `skills/<name>/SKILL.md`:
-
 - Development: `skills/dev/SKILL.md`
 - Debugging: `skills/debug/SKILL.md`
 - Fix protocol: `skills/fix/SKILL.md`
