@@ -1,0 +1,28 @@
+{
+  "assets": {
+    "world.bg_park_day": "/assets/world/bg_park_day.svg",
+    "puppy.puppy_idle": "/assets/puppy/puppy_idle.svg",
+    "puppy.puppy_happy": "/assets/puppy/puppy_happy.svg",
+    "puppy.puppy_thinking": "/assets/puppy/puppy_thinking.svg",
+    "puppy.puppy_celebrate": "/assets/puppy/puppy_celebrate.svg",
+    "animals.animal_cat": "/assets/animals/animal_cat.svg",
+    "animals.animal_dog": "/assets/animals/animal_dog.svg",
+    "animals.animal_bird": "/assets/animals/animal_bird.svg",
+    "animals.animal_rabbit": "/assets/animals/animal_rabbit.svg",
+    "animals.animal_fish": "/assets/animals/animal_fish.svg",
+    "animals.animal_turtle": "/assets/animals/animal_turtle.svg",
+    "animals.animal_frog": "/assets/animals/animal_frog.svg",
+    "animals.animal_hamster": "/assets/animals/animal_hamster.svg",
+    "ui.ui_speech_bubble": "/assets/ui/ui_speech_bubble.svg",
+    "ui.ui_tile_frame": "/assets/ui/ui_tile_frame.svg",
+    "ui.ui_button_pill": "/assets/ui/ui_button_pill.svg",
+    "ui.ui_sparkle": "/assets/ui/ui_sparkle.svg",
+    "ui.ui_pawprint": "/assets/ui/ui_pawprint.svg",
+    "ui.ui_confetti": "/assets/ui/ui_confetti.svg",
+    "accessories.acc_001_hat": "/assets/accessories/acc_001_hat.svg",
+    "accessories.acc_002_cape": "/assets/accessories/acc_002_cape.svg",
+    "accessories.acc_003_glasses": "/assets/accessories/acc_003_glasses.svg",
+    "accessories.acc_004_scarf": "/assets/accessories/acc_004_scarf.svg",
+    "accessories.acc_005_bow": "/assets/accessories/acc_005_bow.svg"
+  }
+}

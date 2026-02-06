@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect x="60" y="80" width="40" height="80" rx="8" fill="#ffadad" stroke="#5b4a3a" stroke-width="6" />
+  <rect x="140" y="140" width="40" height="80" rx="8" fill="#ffd6a5" stroke="#5b4a3a" stroke-width="6" />
+  <rect x="220" y="60" width="40" height="80" rx="8" fill="#fdffb6" stroke="#5b4a3a" stroke-width="6" />
+  <rect x="300" y="160" width="40" height="80" rx="8" fill="#caffbf" stroke="#5b4a3a" stroke-width="6" />
+  <rect x="380" y="90" width="40" height="80" rx="8" fill="#9bf6ff" stroke="#5b4a3a" stroke-width="6" />
+  <circle cx="120" cy="340" r="20" fill="#a0c4ff" stroke="#5b4a3a" stroke-width="6" />
+  <circle cx="260" cy="380" r="20" fill="#bdb2ff" stroke="#5b4a3a" stroke-width="6" />
+  <circle cx="400" cy="320" r="20" fill="#ffc6ff" stroke="#5b4a3a" stroke-width="6" />
+  <text x="170" y="480" font-family="Arial, sans-serif" font-size="24" fill="#5b4a3a">confetti</text>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <path d="M120 160c80 40 190 40 270 0l50 260H70z" fill="#caffbf" stroke="#5b4a3a" stroke-width="10" />
+  <circle cx="256" cy="170" r="24" fill="#ffd6a5" stroke="#5b4a3a" stroke-width="8" />
+  <text x="190" y="430" font-family="Arial, sans-serif" font-size="26" fill="#5b4a3a">cape</text>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <circle cx="180" cy="180" r="50" fill="#ffd3a1" stroke="#5b4a3a" stroke-width="8" />
+  <circle cx="260" cy="150" r="50" fill="#ffd3a1" stroke="#5b4a3a" stroke-width="8" />
+  <circle cx="340" cy="180" r="50" fill="#ffd3a1" stroke="#5b4a3a" stroke-width="8" />
+  <ellipse cx="256" cy="310" rx="90" ry="80" fill="#ffd3a1" stroke="#5b4a3a" stroke-width="8" />
+  <text x="180" y="480" font-family="Arial, sans-serif" font-size="24" fill="#5b4a3a">paw</text>
+</svg>
