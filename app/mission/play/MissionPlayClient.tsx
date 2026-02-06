@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Question } from "../../../lib/content/types";
 import { getQuestionView } from "../../../lib/mission/questionView";
@@ -10,12 +10,20 @@ import {
   requestAdvance,
   resetForRetry,
 } from "../../../lib/mission/answerState";
+import {
+  initMissionSession,
+  loadMissionSession,
+  updateMissionSession,
+} from "../../../lib/mission/sessionProgress";
 import PetPanel from "../../components/PetPanel";
 
 type MissionPlayClientProps = {
   question: Question;
   progressLabel: string;
   nextHref: string;
+  currentStep: number;
+  totalQuestions: number;
+  topicId: string;
 };
 
 const buildCritterList = (count: number): number[] =>
@@ -25,6 +33,9 @@ export default function MissionPlayClient({
   question,
   progressLabel,
   nextHref,
+  currentStep,
+  totalQuestions,
+  topicId,
 }: MissionPlayClientProps) {
   const router = useRouter();
   const [answerState, setAnswerState] = useState(createAnswerState);
@@ -93,6 +104,20 @@ export default function MissionPlayClient({
     );
   };
 
+  useEffect(() => {
+    if (currentStep === 1) {
+      initMissionSession(totalQuestions, topicId);
+      return;
+    }
+
+    const existing = loadMissionSession();
+    if (existing.ok && existing.value?.totalCount === totalQuestions) {
+      return;
+    }
+
+    initMissionSession(totalQuestions, topicId);
+  }, [currentStep, totalQuestions, topicId]);
+
   const handleRetry = () => {
     setAnswerState((prev) => resetForRetry(prev));
   };
@@ -101,6 +126,12 @@ export default function MissionPlayClient({
     setAnswerState((prev) => {
       const result = requestAdvance(prev);
       if (result.shouldAdvance) {
+        if (prev.feedback === "correct") {
+          updateMissionSession(true, totalQuestions, topicId);
+        }
+        if (prev.feedback === "reveal") {
+          updateMissionSession(false, totalQuestions, topicId);
+        }
         router.push(nextHref);
       }
       return result.state;
