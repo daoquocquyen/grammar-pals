@@ -12,6 +12,7 @@ import {
   mergeProgress,
   saveProgress,
 } from "../../../lib/progress/storage";
+import { setRewardPending } from "../../../lib/progress/rewardSession";
 
 const DEFAULT_TOPIC_ID = "is_are";
 
@@ -88,6 +89,7 @@ export default function MissionEndClient() {
       saveProgress(updated);
     }
 
+    setRewardPending();
     clearMissionSession();
   }, [summary.mastery, summary.source, summary.topicId]);
 
