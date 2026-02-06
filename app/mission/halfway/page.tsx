@@ -8,17 +8,20 @@ import PetPanel from "../../components/PetPanel";
 import TopBar from "../../components/TopBar";
 
 type MissionHalfwayPageProps = {
-  searchParams?: Record<string, string | string[] | undefined>;
+  searchParams?:
+    | Record<string, string | string[] | undefined>
+    | Promise<Record<string, string | string[] | undefined>>;
 };
 
 const getParam = (
   value: string | string[] | undefined
 ): string | undefined => (Array.isArray(value) ? value[0] : value);
 
-export default function MissionHalfwayPage({
+export default async function MissionHalfwayPage({
   searchParams,
 }: MissionHalfwayPageProps) {
-  const nextParam = getParam(searchParams?.next);
+  const resolvedParams = await searchParams;
+  const nextParam = getParam(resolvedParams?.next);
   const nextStep = parsePositiveInteger(nextParam, 5);
   const safeNextStep = Math.min(nextStep, MISSION_QUESTION_COUNT);
   const continueHref = buildMissionPlayHref(safeNextStep, true);

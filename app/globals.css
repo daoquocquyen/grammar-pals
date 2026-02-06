@@ -441,12 +441,25 @@ p {
 .story-card,
 .topic-card,
 .clue-card,
+.prompt-card,
 .halfway-card,
 .end-card,
 .reward-card,
 .closet-card {
   display: grid;
   gap: 18px;
+}
+
+.prompt-card {
+  text-align: center;
+  place-items: center;
+}
+
+.prompt-text {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
 }
 
 .story-illustration,
@@ -573,13 +586,28 @@ p {
   font-weight: 700;
   text-align: center;
   box-shadow: var(--shadow-soft);
-  transition: transform 0.12s ease, border-color 0.12s ease;
+  transition:
+    transform 0.12s ease,
+    border-color 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease;
 }
 
 .sentence-card:hover,
 .sentence-card:focus-visible {
   transform: translateY(-2px);
   border-color: rgba(255, 159, 67, 0.6);
+}
+
+.sentence-card:active {
+  transform: translateY(1px) scale(0.99);
+  box-shadow: var(--shadow);
+}
+
+.sentence-card--selected,
+.sentence-card[data-state="selected"] {
+  border-color: rgba(63, 191, 139, 0.8);
+  background: #f3fff8;
 }
 
 .end-burst {
