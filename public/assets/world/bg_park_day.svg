@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cfe9ff" />
+      <stop offset="1" stop-color="#fef6d8" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#d7c7a8" flood-opacity="0.6" />
+    </filter>
+  </defs>
+  <rect width="1024" height="576" fill="url(#sky)" />
+  <rect y="360" width="1024" height="216" fill="#c7f1c2" />
+  <circle cx="850" cy="120" r="60" fill="#ffe17b" stroke="#6b4d2b" stroke-width="6" filter="url(#shadow)" />
+  <path d="M120 420c80-90 180-120 280-80 60-80 160-90 240-40 70-70 160-60 260 20v140H120z" fill="#9ee4b8" stroke="#5b4a3a" stroke-width="6" />
+  <g fill="#9ad39b" stroke="#5b4a3a" stroke-width="6" filter="url(#shadow)">
+    <circle cx="180" cy="360" r="44" />
+    <circle cx="260" cy="390" r="38" />
+    <circle cx="320" cy="350" r="32" />
+  </g>
+  <text x="40" y="60" font-family="Arial, sans-serif" font-size="26" fill="#5b4a3a">Puppy Park (placeholder)</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <polygon points="110,240 220,190 220,290" fill="#ffc6ff" stroke="#5b4a3a" stroke-width="10" />
+  <polygon points="402,240 292,190 292,290" fill="#ffc6ff" stroke="#5b4a3a" stroke-width="10" />
+  <circle cx="256" cy="240" r="30" fill="#ffd6a5" stroke="#5b4a3a" stroke-width="10" />
+  <text x="210" y="420" font-family="Arial, sans-serif" font-size="26" fill="#5b4a3a">bow</text>
+</svg>

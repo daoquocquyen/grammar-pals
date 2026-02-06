@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect x="60" y="60" width="392" height="392" rx="60" fill="#fff4de" stroke="#5b4a3a" stroke-width="12" />
+  <rect x="100" y="100" width="312" height="312" rx="50" fill="#fffaf5" stroke="#d9b48c" stroke-width="6" stroke-dasharray="14 12" />
+  <text x="150" y="280" font-family="Arial, sans-serif" font-size="28" fill="#5b4a3a">tile</text>
+</svg>

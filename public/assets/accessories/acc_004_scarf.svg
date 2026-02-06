@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <path d="M120 260c90 60 200 60 272 0v90c-80 40-190 40-272 0z" fill="#bdb2ff" stroke="#5b4a3a" stroke-width="10" />
+  <rect x="210" y="250" width="90" height="160" rx="30" fill="#a0c4ff" stroke="#5b4a3a" stroke-width="10" />
+  <text x="190" y="460" font-family="Arial, sans-serif" font-size="26" fill="#5b4a3a">scarf</text>
+</svg>

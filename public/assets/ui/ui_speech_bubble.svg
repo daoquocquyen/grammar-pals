@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#d7c7b0" flood-opacity="0.6" />
+    </filter>
+  </defs>
+  <rect x="70" y="80" width="360" height="260" rx="50" fill="#fffaf0" stroke="#5b4a3a" stroke-width="10" filter="url(#shadow)" />
+  <path d="M180 340l-40 60 90-40" fill="#fffaf0" stroke="#5b4a3a" stroke-width="10" stroke-linejoin="round" />
+  <text x="120" y="220" font-family="Arial, sans-serif" font-size="28" fill="#5b4a3a">speech</text>
+</svg>

@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <polygon points="256,60 300,200 452,256 300,312 256,452 212,312 60,256 212,200" fill="#ffe17b" stroke="#5b4a3a" stroke-width="10" />
+  <text x="150" y="500" font-family="Arial, sans-serif" font-size="24" fill="#5b4a3a">sparkle</text>
+</svg>

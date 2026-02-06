@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#b7d7c0" flood-opacity="0.6" />
+    </filter>
+  </defs>
+  <ellipse cx="256" cy="280" rx="160" ry="110" fill="#c6f1d0" stroke="#5b4a3a" stroke-width="10" filter="url(#shadow)" />
+  <circle cx="110" cy="280" r="50" fill="#c6f1d0" stroke="#5b4a3a" stroke-width="10" />
+  <circle cx="96" cy="270" r="10" fill="#5b4a3a" />
+  <circle cx="96" cy="296" r="10" fill="#5b4a3a" />
+  <circle cx="256" cy="280" r="50" fill="none" stroke="#5b4a3a" stroke-width="8" />
+  <text x="32" y="64" font-family="Arial, sans-serif" font-size="24" fill="#5b4a3a">turtle</text>
+</svg>
