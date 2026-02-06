@@ -90,6 +90,9 @@ export default async function MissionPlayPage({
         question={question}
         progressLabel={progressLabel}
         nextHref={nextHref}
+        currentStep={currentIndex + 1}
+        totalQuestions={totalQuestions}
+        topicId={question.skill}
       />
 
       <div className="helper-row">
