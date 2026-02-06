@@ -34,7 +34,7 @@ export default function MissionPlayPage() {
 
       <PetPanel
         message="Pick the sentence that matches the clue."
-        mood="curious"
+        reaction="curious"
       />
 
       <div className="helper-row">

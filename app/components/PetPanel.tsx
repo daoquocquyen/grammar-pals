@@ -1,16 +1,18 @@
+type PetReaction = "idle" | "happy" | "thinking" | "cheer" | "curious";
+
 type PetPanelProps = {
   message: string;
-  mood?: "happy" | "curious" | "cheer" | "thoughtful";
-  reaction?: string;
+  reaction?: PetReaction;
+  badge?: string;
 };
 
 export default function PetPanel({
   message,
-  mood = "happy",
-  reaction,
+  reaction = "idle",
+  badge,
 }: PetPanelProps) {
   return (
-    <section className={`pet-panel pet-panel--${mood}`}>
+    <section className={`pet-panel pet-panel--${reaction}`}>
       <div className="pet-avatar" aria-hidden="true">
         <span className="pet-eye" />
         <span className="pet-eye" />
@@ -18,7 +20,7 @@ export default function PetPanel({
       </div>
       <div className="pet-bubble">
         <p>{message}</p>
-        {reaction ? <span className="pet-reaction">{reaction}</span> : null}
+        {badge ? <span className="pet-reaction">{badge}</span> : null}
       </div>
     </section>
   );

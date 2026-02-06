@@ -21,7 +21,7 @@ export default function MissionHalfwayPage() {
         </div>
       </section>
 
-      <PetPanel message="Wow! They are feeling better already." mood="cheer" />
+      <PetPanel message="Wow! They are feeling better already." reaction="cheer" />
 
       <div className="action-row">
         <Link className="btn btn-primary" href="/mission/play">

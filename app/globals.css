@@ -263,6 +263,10 @@ p {
   box-shadow: var(--shadow-soft);
 }
 
+.pet-panel--idle {
+  border-color: rgba(234, 223, 206, 0.9);
+}
+
 .pet-panel--happy {
   border-color: rgba(63, 191, 139, 0.4);
 }
@@ -275,7 +279,7 @@ p {
   border-color: rgba(255, 159, 67, 0.55);
 }
 
-.pet-panel--thoughtful {
+.pet-panel--thinking {
   border-color: rgba(99, 146, 255, 0.4);
 }
 
@@ -297,6 +301,7 @@ p {
   background: var(--ink);
   position: absolute;
   top: 34px;
+  animation: blink 4.4s ease-in-out infinite;
 }
 
 .pet-eye:first-of-type {
@@ -323,6 +328,18 @@ p {
   }
   50% {
     transform: translateY(-6px);
+  }
+}
+
+@keyframes blink {
+  0%,
+  94%,
+  100% {
+    transform: scaleY(1);
+  }
+  95%,
+  97% {
+    transform: scaleY(0.1);
   }
 }
 

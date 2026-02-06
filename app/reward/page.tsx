@@ -16,7 +16,7 @@ export default function RewardPage() {
 
       <PetPanel
         message="You earned a new accessory! Try it on."
-        mood="cheer"
+        reaction="cheer"
       />
 
       <div className="action-row">

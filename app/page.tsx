@@ -26,8 +26,8 @@ export default function Home() {
 
       <PetPanel
         message="Hi! Ready to rescue and learn is/are?"
-        mood="cheer"
-        reaction="Lets go!"
+        reaction="cheer"
+        badge="Lets go!"
       />
 
       <div className="action-row">

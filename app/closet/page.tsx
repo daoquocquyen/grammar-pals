@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PetPanel from "../components/PetPanel";
 import TopBar from "../components/TopBar";
 
 const accessories = [
@@ -31,6 +32,11 @@ export default function ClosetPage() {
           ))}
         </div>
       </section>
+
+      <PetPanel
+        message="Pick an owned accessory and your pal will try it on!"
+        reaction="happy"
+      />
 
       <div className="action-row">
         <Link className="btn btn-primary" href="/">
