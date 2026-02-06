@@ -256,5 +256,91 @@
         "audioKey": "hint_isare_one"
       }
     }
+  },
+  {
+    "id": "isare_t3_0007",
+    "template": "T3",
+    "skill": "is_are",
+    "difficulty": "medium_plus",
+    "scene": {
+      "animal": "penguin",
+      "count": 2,
+      "numberBadge": false
+    },
+    "prompt": {
+      "text": "Choose the correct sentence.",
+      "audioKey": "prompt_choose_correct_sentence"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "The penguins are chilly.",
+        "isCorrect": true,
+        "audioKey": "opt_isare_t3_0007_A"
+      },
+      {
+        "id": "B",
+        "text": "The penguins is chilly.",
+        "isCorrect": false,
+        "audioKey": "opt_isare_t3_0007_B"
+      }
+    ],
+    "explanations": {
+      "correct": {
+        "text": "Two penguins is many. Many uses are.",
+        "audioKey": "exp_isare_many_are"
+      },
+      "wrong": {
+        "text": "Nice try! Two penguins is many, so we need are.",
+        "audioKey": "exp_isare_wrong_many_are"
+      },
+      "hint": {
+        "text": "Look! Many penguins. Many uses are.",
+        "audioKey": "hint_isare_many"
+      }
+    }
+  },
+  {
+    "id": "isare_t2_0008",
+    "template": "T2",
+    "skill": "is_are",
+    "difficulty": "medium_plus",
+    "scene": {
+      "animal": "monkey",
+      "count": 3,
+      "numberBadge": false
+    },
+    "prompt": {
+      "text": "Which sentence is correct?",
+      "audioKey": "prompt_which_sentence_correct"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "The monkeys are wiggly.",
+        "isCorrect": true,
+        "audioKey": "opt_isare_t2_0008_A"
+      },
+      {
+        "id": "B",
+        "text": "The monkeys is wiggly.",
+        "isCorrect": false,
+        "audioKey": "opt_isare_t2_0008_B"
+      }
+    ],
+    "explanations": {
+      "correct": {
+        "text": "Three monkeys is many. Many uses are.",
+        "audioKey": "exp_isare_many_are"
+      },
+      "wrong": {
+        "text": "Nice try! Three monkeys is many, so we need are.",
+        "audioKey": "exp_isare_wrong_many_are"
+      },
+      "hint": {
+        "text": "Look! Many monkeys. Many uses are.",
+        "audioKey": "hint_isare_many"
+      }
+    }
   }
 ]
