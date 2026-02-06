@@ -66,3 +66,4 @@ Use this skill when implementing any ticket (features, UI work, refactors within
 - No new dependencies without explicit approval.
 - Keep UI kid-friendly (big buttons, minimal text).
 - Follow privacy constraints (no tracking, no accounts, local-only progress).
+- Commit messages must follow Conventional Commits (see `AGENTS.md`).
