@@ -1,8 +1,30 @@
 import Link from "next/link";
+import { loadSampleQuestionPack } from "../../../lib/content/loader";
 import PetPanel from "../../components/PetPanel";
 import TopBar from "../../components/TopBar";
 
 export default function MissionPlayPage() {
+  const packResult = loadSampleQuestionPack();
+
+  if (!packResult.ok) {
+    return (
+      <main className="screen">
+        <TopBar />
+        <section className="panel">
+          <h1>Oops! Something went wrong with this rescue.</h1>
+          <p className="subtext">Please head back home and try again.</p>
+          <Link className="btn btn-primary" href="/">
+            Back to Home
+          </Link>
+        </section>
+      </main>
+    );
+  }
+
+  const question = packResult.questions[0];
+  const critterCount = Math.min(question.scene.count, 4);
+  const critters = Array.from({ length: critterCount }, (_, index) => index);
+
   return (
     <main className="screen">
       <TopBar />
@@ -13,23 +35,28 @@ export default function MissionPlayPage() {
 
       <section className="panel clue-card">
         <div className="clue-picture" aria-hidden="true">
-          <span className="clue-count">3</span>
+          {question.scene.numberBadge ? (
+            <span className="clue-count">{question.scene.count}</span>
+          ) : null}
           <div className="clue-critters">
-            <span />
-            <span />
-            <span />
+            {critters.map((critter) => (
+              <span key={critter} />
+            ))}
           </div>
         </div>
-        <p className="subtext">Choose the correct sentence.</p>
+        <p className="subtext">{question.prompt.text}</p>
       </section>
 
       <div className="sentence-grid">
-        <Link className="sentence-card" href="/mission/halfway">
-          The cats are happy.
-        </Link>
-        <Link className="sentence-card" href="/mission/halfway">
-          The cats is happy.
-        </Link>
+        {question.options.map((option) => (
+          <Link
+            className="sentence-card"
+            href="/mission/halfway"
+            key={option.id}
+          >
+            {option.text}
+          </Link>
+        ))}
       </div>
 
       <PetPanel

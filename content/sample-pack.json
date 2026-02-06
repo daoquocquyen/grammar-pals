@@ -1,0 +1,260 @@
+[
+  {
+    "id": "isare_t3_0001",
+    "template": "T3",
+    "skill": "is_are",
+    "difficulty": "very_easy",
+    "scene": {
+      "animal": "cat",
+      "count": 2,
+      "numberBadge": true
+    },
+    "prompt": {
+      "text": "Choose the correct sentence.",
+      "audioKey": "prompt_choose_correct_sentence"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "The cats are happy.",
+        "isCorrect": true,
+        "audioKey": "opt_isare_t3_0001_A"
+      },
+      {
+        "id": "B",
+        "text": "The cats is happy.",
+        "isCorrect": false,
+        "audioKey": "opt_isare_t3_0001_B"
+      }
+    ],
+    "explanations": {
+      "correct": {
+        "text": "Two cats is many. Many uses are.",
+        "audioKey": "exp_isare_many_are"
+      },
+      "wrong": {
+        "text": "Nice try! Two cats is many, so we need are.",
+        "audioKey": "exp_isare_wrong_many_are"
+      },
+      "hint": {
+        "text": "Look! Many cats. Many uses are.",
+        "audioKey": "hint_isare_many"
+      }
+    }
+  },
+  {
+    "id": "isare_t2_0002",
+    "template": "T2",
+    "skill": "is_are",
+    "difficulty": "easy",
+    "scene": {
+      "animal": "dog",
+      "count": 1,
+      "numberBadge": true
+    },
+    "prompt": {
+      "text": "Which sentence is correct?",
+      "audioKey": "prompt_which_sentence_correct"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "The dog is sleepy.",
+        "isCorrect": true,
+        "audioKey": "opt_isare_t2_0002_A"
+      },
+      {
+        "id": "B",
+        "text": "The dog are sleepy.",
+        "isCorrect": false,
+        "audioKey": "opt_isare_t2_0002_B"
+      }
+    ],
+    "explanations": {
+      "correct": {
+        "text": "One dog is one. One uses is.",
+        "audioKey": "exp_isare_one_is"
+      },
+      "wrong": {
+        "text": "Nice try! One dog is one, so we need is.",
+        "audioKey": "exp_isare_wrong_one_is"
+      },
+      "hint": {
+        "text": "Look! Just one dog. One uses is.",
+        "audioKey": "hint_isare_one"
+      }
+    }
+  },
+  {
+    "id": "isare_t3_0003",
+    "template": "T3",
+    "skill": "is_are",
+    "difficulty": "easy",
+    "scene": {
+      "animal": "turtle",
+      "count": 1,
+      "numberBadge": true
+    },
+    "prompt": {
+      "text": "Choose the correct sentence.",
+      "audioKey": "prompt_choose_correct_sentence"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "The turtle is slow.",
+        "isCorrect": true,
+        "audioKey": "opt_isare_t3_0003_A"
+      },
+      {
+        "id": "B",
+        "text": "The turtle are slow.",
+        "isCorrect": false,
+        "audioKey": "opt_isare_t3_0003_B"
+      }
+    ],
+    "explanations": {
+      "correct": {
+        "text": "One turtle is one. One uses is.",
+        "audioKey": "exp_isare_one_is"
+      },
+      "wrong": {
+        "text": "Nice try! One turtle is one, so we need is.",
+        "audioKey": "exp_isare_wrong_one_is"
+      },
+      "hint": {
+        "text": "Look! Just one turtle. One uses is.",
+        "audioKey": "hint_isare_one"
+      }
+    }
+  },
+  {
+    "id": "isare_t2_0004",
+    "template": "T2",
+    "skill": "is_are",
+    "difficulty": "medium",
+    "scene": {
+      "animal": "frog",
+      "count": 3,
+      "numberBadge": true
+    },
+    "prompt": {
+      "text": "Which sentence is correct?",
+      "audioKey": "prompt_which_sentence_correct"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "The frogs are bouncy.",
+        "isCorrect": true,
+        "audioKey": "opt_isare_t2_0004_A"
+      },
+      {
+        "id": "B",
+        "text": "The frogs is bouncy.",
+        "isCorrect": false,
+        "audioKey": "opt_isare_t2_0004_B"
+      }
+    ],
+    "explanations": {
+      "correct": {
+        "text": "Three frogs is many. Many uses are.",
+        "audioKey": "exp_isare_many_are"
+      },
+      "wrong": {
+        "text": "Nice try! Three frogs is many, so we need are.",
+        "audioKey": "exp_isare_wrong_many_are"
+      },
+      "hint": {
+        "text": "Look! Many frogs. Many uses are.",
+        "audioKey": "hint_isare_many"
+      }
+    }
+  },
+  {
+    "id": "isare_t3_0005",
+    "template": "T3",
+    "skill": "is_are",
+    "difficulty": "medium",
+    "scene": {
+      "animal": "owl",
+      "count": 2,
+      "numberBadge": true
+    },
+    "prompt": {
+      "text": "Choose the correct sentence.",
+      "audioKey": "prompt_choose_correct_sentence"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "The owls are spooky.",
+        "isCorrect": true,
+        "audioKey": "opt_isare_t3_0005_A"
+      },
+      {
+        "id": "B",
+        "text": "The owls is spooky.",
+        "isCorrect": false,
+        "audioKey": "opt_isare_t3_0005_B"
+      }
+    ],
+    "explanations": {
+      "correct": {
+        "text": "Two owls is many. Many uses are.",
+        "audioKey": "exp_isare_many_are"
+      },
+      "wrong": {
+        "text": "Nice try! Two owls is many, so we need are.",
+        "audioKey": "exp_isare_wrong_many_are"
+      },
+      "hint": {
+        "text": "Look! Many owls. Many uses are.",
+        "audioKey": "hint_isare_many"
+      }
+    }
+  },
+  {
+    "id": "isare_t2_0006",
+    "template": "T2",
+    "skill": "is_are",
+    "difficulty": "medium_plus",
+    "scene": {
+      "animal": "panda",
+      "count": 1,
+      "numberBadge": false
+    },
+    "prompt": {
+      "text": "Which sentence is correct?",
+      "audioKey": "prompt_which_sentence_correct"
+    },
+    "options": [
+      {
+        "id": "A",
+        "text": "The panda is big.",
+        "isCorrect": true,
+        "audioKey": "opt_isare_t2_0006_A"
+      },
+      {
+        "id": "B",
+        "text": "The panda are big.",
+        "isCorrect": false,
+        "audioKey": "opt_isare_t2_0006_B"
+      }
+    ],
+    "explanations": {
+      "correct": {
+        "text": "One panda is one. One uses is.",
+        "audioKey": "exp_isare_one_is"
+      },
+      "wrong": {
+        "text": "Nice try! One panda is one, so we need is.",
+        "audioKey": "exp_isare_wrong_one_is"
+      },
+      "hint": {
+        "text": "Look! Just one panda. One uses is.",
+        "audioKey": "hint_isare_one"
+      }
+    }
+  }
+]
