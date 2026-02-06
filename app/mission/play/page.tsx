@@ -13,14 +13,18 @@ import PetPanel from "../../components/PetPanel";
 import TopBar from "../../components/TopBar";
 
 type MissionPlayPageProps = {
-  searchParams?: Record<string, string | string[] | undefined>;
+  searchParams?:
+    | Record<string, string | string[] | undefined>
+    | Promise<Record<string, string | string[] | undefined>>;
 };
 
 const getParam = (
   value: string | string[] | undefined
 ): string | undefined => (Array.isArray(value) ? value[0] : value);
 
-export default function MissionPlayPage({ searchParams }: MissionPlayPageProps) {
+export default async function MissionPlayPage({
+  searchParams,
+}: MissionPlayPageProps) {
   const packResult = loadSampleQuestionPack();
 
   if (!packResult.ok) {
@@ -58,8 +62,9 @@ export default function MissionPlayPage({ searchParams }: MissionPlayPageProps) 
     );
   }
 
-  const stepParam = getParam(searchParams?.step);
-  const halfwayParam = getParam(searchParams?.halfway);
+  const resolvedParams = await searchParams;
+  const stepParam = getParam(resolvedParams?.step);
+  const halfwayParam = getParam(resolvedParams?.halfway);
   const currentStep = parsePositiveInteger(stepParam, 1);
   const totalQuestions = missionSelection.questions.length;
   const currentIndex = clampIndex(currentStep - 1, totalQuestions);
