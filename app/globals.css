@@ -168,6 +168,12 @@ p {
   box-shadow: var(--shadow-soft);
 }
 
+.icon-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
 .panel {
   background: var(--card);
   border: 1px solid var(--stroke);

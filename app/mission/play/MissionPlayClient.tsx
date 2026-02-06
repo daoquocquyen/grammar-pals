@@ -209,7 +209,7 @@ export default function MissionPlayClient({
         })}
       </div>
 
-      <PetPanel message={petMessage} reaction={petReaction} />
+      <PetPanel message={petMessage} reaction={petReaction} autoSpeak />
 
       {isFeedback ? (
         <div className="action-row">

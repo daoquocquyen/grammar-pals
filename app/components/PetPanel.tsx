@@ -1,3 +1,8 @@
+"use client";
+
+import { useEffect } from "react";
+import { useAudio } from "./audio/AudioProvider";
+
 type PetReaction = "idle" | "happy" | "thinking" | "cheer" | "curious";
 
 type PetPanelProps = {
@@ -6,6 +11,7 @@ type PetPanelProps = {
   badge?: string;
   accessoryLabel?: string;
   className?: string;
+  autoSpeak?: boolean;
 };
 
 export default function PetPanel({
@@ -14,7 +20,16 @@ export default function PetPanel({
   badge,
   accessoryLabel,
   className,
+  autoSpeak = false,
 }: PetPanelProps) {
+  const { speak } = useAudio();
+
+  useEffect(() => {
+    if (autoSpeak) {
+      speak(message);
+    }
+  }, [autoSpeak, message, speak]);
+
   return (
     <section className={`pet-panel pet-panel--${reaction} ${className ?? ""}`}>
       <div className="pet-avatar" aria-hidden="true">
