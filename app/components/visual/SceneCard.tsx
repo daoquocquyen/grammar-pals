@@ -6,6 +6,7 @@ export type SceneCardProps = {
   animalKey: string;
   count: number;
   numberBadge?: boolean;
+  highlight?: boolean;
 };
 
 const buildCritters = (count: number): number[] =>
@@ -16,13 +17,17 @@ export default function SceneCard({
   animalKey,
   count,
   numberBadge = false,
+  highlight = false,
 }: SceneCardProps) {
   const backgroundSrc = getAssetPath(backgroundKey);
   const animalSrc = getAssetPath(animalKey);
   const critters = buildCritters(count);
 
   return (
-    <section className="scene-card" aria-label="Scene clue">
+    <section
+      className={`scene-card${highlight ? " is-highlight" : ""}`}
+      aria-label="Scene clue"
+    >
       {backgroundSrc ? (
         <Image
           className="scene-card__background"

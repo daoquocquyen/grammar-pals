@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Question } from "../../../lib/content/types";
-import { getQuestionView } from "../../../lib/mission/questionView";
 import {
   applyAnswerSelection,
   createAnswerState,
@@ -15,7 +14,9 @@ import {
   loadMissionSession,
   updateMissionSession,
 } from "../../../lib/mission/sessionProgress";
-import PetPanel from "../../components/PetPanel";
+import SceneCard from "../../components/visual/SceneCard";
+import StickerTile from "../../components/visual/StickerTile";
+import PuppyCoachBar from "../../components/visual/PuppyCoachBar";
 
 type MissionPlayClientProps = {
   question: Question;
@@ -26,8 +27,16 @@ type MissionPlayClientProps = {
   topicId: string;
 };
 
-const buildCritterList = (count: number): number[] =>
-  Array.from({ length: count }, (_, index) => index);
+const animalAssetMap: Record<string, string> = {
+  cat: "animals.animal_cat",
+  dog: "animals.animal_dog",
+  bird: "animals.animal_bird",
+  rabbit: "animals.animal_rabbit",
+  fish: "animals.animal_fish",
+  turtle: "animals.animal_turtle",
+  frog: "animals.animal_frog",
+  hamster: "animals.animal_hamster",
+};
 
 export default function MissionPlayClient({
   question,
@@ -39,9 +48,8 @@ export default function MissionPlayClient({
 }: MissionPlayClientProps) {
   const router = useRouter();
   const [answerState, setAnswerState] = useState(createAnswerState);
-  const questionView = getQuestionView(question.template);
-  const critterCount = Math.min(question.scene.count, 4);
-  const critters = buildCritterList(critterCount);
+  const animalKey =
+    animalAssetMap[question.scene.animal] ?? "animals.animal_cat";
 
   const correctOptionId = useMemo(() => {
     const correctOption = question.options.find((option) => option.isCorrect);
@@ -82,9 +90,9 @@ export default function MissionPlayClient({
     return question.explanations.wrong.text;
   })();
 
-  const petReaction: "curious" | "happy" | "thinking" | "cheer" = (() => {
+  const puppyMood: "idle" | "happy" | "thinking" | "celebrate" = (() => {
     if (!isFeedback) {
-      return "curious";
+      return "idle";
     }
 
     if (answerState.feedback === "correct") {
@@ -95,7 +103,7 @@ export default function MissionPlayClient({
       return "thinking";
     }
 
-    return "cheer";
+    return "celebrate";
   })();
 
   const handleSelect = (optionId: "A" | "B", isCorrect: boolean) => {
@@ -139,77 +147,37 @@ export default function MissionPlayClient({
   };
 
   return (
-    <>
-      <div className="progress-row">
+    <div className="mission-play">
+      <div className="mission-play__header">
         <span className="progress-pill">{progressLabel}</span>
-        <span className="progress-note">Question in progress</span>
+        <span className="mission-play__note">Rescue in progress</span>
       </div>
 
-      {questionView.showPictureClue ? (
-        <section
-          className={`panel clue-card${
-            answerState.highlightClue ? " clue-card--highlight" : ""
-          }`}
-        >
-          <div
-            className={`clue-picture${
-              answerState.highlightClue ? " clue-picture--highlight" : ""
-            }`}
-            aria-hidden="true"
-          >
-            {question.scene.numberBadge ? (
-              <span
-                className={`clue-count${
-                  answerState.highlightClue ? " clue-count--highlight" : ""
-                }`}
-              >
-                {question.scene.count}
-              </span>
-            ) : null}
-            <div
-              className={`clue-critters${
-                answerState.highlightClue ? " clue-critters--highlight" : ""
-              }`}
-            >
-              {critters.map((critter) => (
-                <span key={critter} />
-              ))}
-            </div>
-          </div>
-          <p className="subtext">{question.prompt.text}</p>
-        </section>
-      ) : (
-        <section
-          className={`panel prompt-card${
-            answerState.highlightClue ? " prompt-card--highlight" : ""
-          }`}
-        >
-          <p className="prompt-text">{question.prompt.text}</p>
-        </section>
-      )}
+      <SceneCard
+        backgroundKey="world.bg_park_day"
+        animalKey={animalKey}
+        count={question.scene.count}
+        numberBadge={question.scene.numberBadge}
+        highlight={answerState.highlightClue}
+      />
 
-      <div className="sentence-grid">
+      <div className="mission-play__choices">
         {question.options.map((option) => {
           const isSelected = highlightedOptionId === option.id;
           return (
-            <button
-              className={`sentence-card${
-                isSelected ? " sentence-card--selected" : ""
-              }`}
-              data-state={isSelected ? "selected" : undefined}
-              type="button"
-              onClick={() => handleSelect(option.id, option.isCorrect)}
-              disabled={answerState.phase !== "question"}
-              aria-pressed={isSelected}
+            <StickerTile
               key={option.id}
-            >
-              {option.text}
-            </button>
+              label={option.text}
+              assetKey="ui.ui_pawprint"
+              selected={isSelected}
+              disabled={answerState.phase !== "question"}
+              onClick={() => handleSelect(option.id, option.isCorrect)}
+            />
           );
         })}
       </div>
 
-      <PetPanel message={petMessage} reaction={petReaction} autoSpeak />
+      <PuppyCoachBar message={petMessage} mood={puppyMood} autoSpeak />
 
       {isFeedback ? (
         <div className="action-row">
@@ -229,6 +197,6 @@ export default function MissionPlayClient({
           )}
         </div>
       ) : null}
-    </>
+    </div>
   );
 }

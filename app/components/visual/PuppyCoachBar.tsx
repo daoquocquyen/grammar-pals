@@ -1,11 +1,16 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect } from "react";
 import { getAssetPath } from "../../../lib/assets/manifest";
+import { useAudio } from "../audio/AudioProvider";
 
 export type PuppyMood = "idle" | "happy" | "thinking" | "celebrate";
 
 export type PuppyCoachBarProps = {
   message: string;
   mood?: PuppyMood;
+  autoSpeak?: boolean;
 };
 
 const moodToKey: Record<PuppyMood, string> = {
@@ -18,9 +23,17 @@ const moodToKey: Record<PuppyMood, string> = {
 export default function PuppyCoachBar({
   message,
   mood = "idle",
+  autoSpeak = false,
 }: PuppyCoachBarProps) {
+  const { speak } = useAudio();
   const puppySrc = getAssetPath(moodToKey[mood]);
   const bubbleSrc = getAssetPath("ui.ui_speech_bubble");
+
+  useEffect(() => {
+    if (autoSpeak) {
+      speak(message);
+    }
+  }, [autoSpeak, message, speak]);
 
   return (
     <section className="puppy-coach" aria-label="Puppy coach">
