@@ -1,10 +1,15 @@
+"use client";
+
 import Link from "next/link";
+import { useAudio } from "./audio/AudioProvider";
 
 type TopBarProps = {
   showHomeLink?: boolean;
 };
 
 export default function TopBar({ showHomeLink = true }: TopBarProps) {
+  const { isMuted, toggleMute, repeat, isSupported } = useAudio();
+  const muteLabel = isMuted ? "Unmute" : "Mute";
   return (
     <header className="top-bar">
       <div className="top-bar__left">
@@ -21,15 +26,20 @@ export default function TopBar({ showHomeLink = true }: TopBarProps) {
           className="icon-button"
           type="button"
           aria-label="Mute audio"
-          title="Mute (coming soon)"
+          aria-pressed={isMuted}
+          title={isSupported ? "Toggle mute" : "Speech not supported"}
+          onClick={toggleMute}
+          disabled={!isSupported}
         >
-          Mute
+          {muteLabel}
         </button>
         <button
           className="icon-button"
           type="button"
           aria-label="Repeat audio"
-          title="Repeat (coming soon)"
+          title={isSupported ? "Repeat" : "Speech not supported"}
+          onClick={repeat}
+          disabled={!isSupported}
         >
           Repeat
         </button>

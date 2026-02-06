@@ -26,7 +26,10 @@ export default function TopicIntroPage() {
         <p className="subtext">Is is for one. Are is for many.</p>
       </section>
 
-      <PetPanel message="Is is for one. Are is for many. Now you try!" />
+      <PetPanel
+        message="Is is for one. Are is for many. Now you try!"
+        autoSpeak
+      />
 
       <div className="action-row">
         <Link className="btn btn-primary" href="/mission/play">

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { AudioProvider } from "./components/audio/AudioProvider";
 
 export const metadata: Metadata = {
   title: "GrammarPals",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="app-shell">{children}</div>
+        <AudioProvider>
+          <div className="app-shell">{children}</div>
+        </AudioProvider>
       </body>
     </html>
   );
