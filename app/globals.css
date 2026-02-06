@@ -251,6 +251,16 @@ p {
   }
 }
 
+@keyframes cluePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
 .pet-panel {
   display: grid;
   grid-template-columns: 90px 1fr;
@@ -384,6 +394,13 @@ p {
   box-shadow: var(--shadow-soft);
 }
 
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+  box-shadow: none;
+}
+
 .btn-primary {
   background: var(--accent);
   color: #3b1d00;
@@ -453,6 +470,12 @@ p {
 .prompt-card {
   text-align: center;
   place-items: center;
+}
+
+.prompt-card--highlight {
+  border-color: rgba(255, 200, 87, 0.8);
+  box-shadow: 0 0 0 3px rgba(255, 200, 87, 0.3);
+  animation: cluePulse 0.8s ease-in-out infinite;
 }
 
 .prompt-text {
@@ -549,6 +572,11 @@ p {
   justify-items: center;
 }
 
+.clue-picture--highlight {
+  box-shadow: 0 0 0 3px rgba(255, 200, 87, 0.35);
+  animation: cluePulse 0.8s ease-in-out infinite;
+}
+
 .clue-count {
   font-weight: 800;
   font-size: 20px;
@@ -556,6 +584,10 @@ p {
   color: #103224;
   padding: 6px 12px;
   border-radius: var(--radius-pill);
+}
+
+.clue-count--highlight {
+  background: rgba(255, 200, 87, 0.7);
 }
 
 .clue-critters {
@@ -569,6 +601,15 @@ p {
   border-radius: 14px;
   background: #ffd6cf;
   border: 2px solid rgba(255, 159, 67, 0.4);
+}
+
+.clue-critters--highlight span {
+  border-color: rgba(255, 200, 87, 0.8);
+  box-shadow: 0 0 0 2px rgba(255, 200, 87, 0.35);
+}
+
+.clue-card--highlight {
+  border-color: rgba(255, 200, 87, 0.6);
 }
 
 .sentence-grid {
@@ -608,6 +649,13 @@ p {
 .sentence-card[data-state="selected"] {
   border-color: rgba(63, 191, 139, 0.8);
   background: #f3fff8;
+}
+
+.sentence-card:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+  box-shadow: none;
 }
 
 .end-burst {

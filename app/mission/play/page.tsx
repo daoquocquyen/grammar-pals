@@ -8,9 +8,8 @@ import {
   parsePositiveInteger,
   selectMissionQuestions,
 } from "../../../lib/mission/progression";
-import { getQuestionView } from "../../../lib/mission/questionView";
-import PetPanel from "../../components/PetPanel";
 import TopBar from "../../components/TopBar";
+import MissionPlayClient from "./MissionPlayClient";
 
 type MissionPlayPageProps = {
   searchParams?:
@@ -71,9 +70,6 @@ export default async function MissionPlayPage({
   const halfwayShown = halfwayParam === "1";
 
   const question = missionSelection.questions[currentIndex];
-  const questionView = getQuestionView(question.template);
-  const critterCount = Math.min(question.scene.count, 4);
-  const critters = Array.from({ length: critterCount }, (_, index) => index);
   const progressLabel = `${currentIndex + 1}/${totalQuestions}`;
   const advance = advanceMission({
     currentIndex,
@@ -89,42 +85,11 @@ export default async function MissionPlayPage({
   return (
     <main className="screen">
       <TopBar />
-      <div className="progress-row">
-        <span className="progress-pill">{progressLabel}</span>
-        <span className="progress-note">Question in progress</span>
-      </div>
-
-      {questionView.showPictureClue ? (
-        <section className="panel clue-card">
-          <div className="clue-picture" aria-hidden="true">
-            {question.scene.numberBadge ? (
-              <span className="clue-count">{question.scene.count}</span>
-            ) : null}
-            <div className="clue-critters">
-              {critters.map((critter) => (
-                <span key={critter} />
-              ))}
-            </div>
-          </div>
-          <p className="subtext">{question.prompt.text}</p>
-        </section>
-      ) : (
-        <section className="panel prompt-card">
-          <p className="prompt-text">{question.prompt.text}</p>
-        </section>
-      )}
-
-      <div className="sentence-grid">
-        {question.options.map((option) => (
-          <Link className="sentence-card" href={nextHref} key={option.id}>
-            {option.text}
-          </Link>
-        ))}
-      </div>
-
-      <PetPanel
-        message="Pick the sentence that matches the clue."
-        reaction="curious"
+      <MissionPlayClient
+        key={question.id}
+        question={question}
+        progressLabel={progressLabel}
+        nextHref={nextHref}
       />
 
       <div className="helper-row">
